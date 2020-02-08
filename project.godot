@@ -16,8 +16,8 @@ _global_script_class_icons={
 [application]
 
 config/name="beat_hacker"
-run/main_scene="res://Scenes/Main.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://Assets/Scenes/Main.tscn"
+config/icon="res://Assets/Images/icon.png"
 
 [rendering]
 

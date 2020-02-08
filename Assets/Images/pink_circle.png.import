@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/blue_square.png-ded81651718c4b4defa70d058836276c.stex"
+path="res://.import/pink_circle.png-0303febea441a4c40525f2db253f79c3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/blue_square.png"
-dest_files=[ "res://.import/blue_square.png-ded81651718c4b4defa70d058836276c.stex" ]
+source_file="res://Assets/Images/pink_circle.png"
+dest_files=[ "res://.import/pink_circle.png-0303febea441a4c40525f2db253f79c3.stex" ]
 
 [params]
 
