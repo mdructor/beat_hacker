@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Container
 
 var _BPM = 100
 var _volume = 100

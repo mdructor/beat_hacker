@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Sounds/808/808-Snare.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Sounds/808/808-Kick.wav" type="AudioStream" id=2]
+
+[node name="SampleStreamer" type="Node"]
+
+[node name="808-Kick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="808-Snare" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
