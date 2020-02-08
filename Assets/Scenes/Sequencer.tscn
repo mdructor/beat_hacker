@@ -4,9 +4,8 @@
 [ext_resource path="res://Assets/Scenes/SampleStreamer.tscn" type="PackedScene" id=2]
 
 [node name="Sequencer" type="ColorRect"]
-margin_top = 4.0
 margin_right = 600.0
-margin_bottom = 404.0
+margin_bottom = 434.0
 rect_min_size = Vector2( 600, 400 )
 color = Color( 0, 0, 0, 1 )
 script = ExtResource( 1 )
