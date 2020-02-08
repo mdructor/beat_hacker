@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Sequencer.gd" type="Script" id=1]
+[ext_resource path="res://Assets/mason_circle.png" type="Texture" id=2]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Sequencer" type="MarginContainer" parent="."]
+margin_left = 222.0
+margin_top = 116.0
+margin_right = 822.0
+margin_bottom = 516.0
+rect_min_size = Vector2( 600, 400 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Backdrop" type="ColorRect" parent="Sequencer"]
+margin_right = 600.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 600, 400 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="SampleButton" type="TextureButton" parent="Sequencer"]
+margin_right = 600.0
+margin_bottom = 400.0
+texture_normal = ExtResource( 2 )
