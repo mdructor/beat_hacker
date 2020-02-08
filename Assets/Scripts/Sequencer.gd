@@ -1,9 +1,11 @@
-extends Container
+extends ColorRect
 
 var _BPM = 100
 var _volume = 100
 var _isPlaying = false
 var _timer = false
+
+var _sampleButtons = []
 
 
 # Called when the node enters the scene tree for the first time.
