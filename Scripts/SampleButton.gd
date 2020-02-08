@@ -1,9 +1,9 @@
-extends Container
+extends TextureButton
 
-var _BPM = 100
-var _volume = 100
-var _isPlaying = false
-var _timer = false
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
 
 
 # Called when the node enters the scene tree for the first time.
