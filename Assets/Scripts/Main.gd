@@ -69,6 +69,10 @@ func _on_LevelList_item_selected(index):
 
 
 func _on_StartButton_pressed():
+	get_node("ClickSound").play()
+	toggleStart()
+
+func toggleStart():
 	if _levelActive:
 		find_node("StartButton").set_text("Start")
 		_levelActive = false
@@ -80,9 +84,11 @@ func _on_StartButton_pressed():
 			var index = find_node("LevelList").get_selected_items()[0]
 			startNewLevel(index)
 			get_node("SubmitButton").disabled = false
+	
 		
 
 func _onSubmit():
+	get_node("ClickSound").play()
 	# 1.) Check current level from list selection
 	# 2.) Step through the sequence buttons and save points in an array
 	# 3.) Determine if beat is correct or not
