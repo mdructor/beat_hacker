@@ -1,15 +1,19 @@
 extends Node2D
 
+onready var starTex = preload("res://Assets/Images/star.png")
+onready var starFillTex = preload("res://Assets/Images/star_fill.png")
+
 var _levelActive = false
 var _levels = []
 
 class Level:
-	var _name
+	var _name = ""
 	var _difficulty = 1
 	var _beatData = []
-	var _bpm
+	var _bpm = 120
 	
 	func _init(name, difficulty, beatData, bpm):
+		_name = name
 		_difficulty = difficulty
 		_beatData = beatData
 		_bpm = bpm
@@ -17,7 +21,9 @@ class Level:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node("ConfirmationDialog").popup_centered()
-	
+	createLevels()
+	for i in range(_levels.size()):
+		get_node("LevelList").add_item(_levels[i]._name)
 
 func createLevels():
 	# Create beat data
@@ -40,3 +46,15 @@ func createLevels():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_LevelList_item_selected(index):
+	var starsToFill = _levels[index]._difficulty
+	for i in range(3):
+		var s = "DiffStar" + str(i)
+		print(s)
+		find_node(s).set_texture(starTex)
+	for i in range(starsToFill):
+		var s = "DiffStar" + str(i)
+		find_node(s).set_texture(starFillTex)
+	
