@@ -17,4 +17,7 @@ func _on_SampleButton_pressed():
 	if _samplePack != "":
 		player = player.find_node(_samplePack)
 	player = player.find_node(_sampleName)
+	if player.is_playing():
+		player.stop()
+		
 	player.play()
