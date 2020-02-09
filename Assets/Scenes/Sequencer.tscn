@@ -18,9 +18,9 @@ __meta__ = {
 
 [node name="PlayButton" type="TextureButton" parent="."]
 margin_left = 442.0
-margin_top = 16.0
-margin_right = 490.0
-margin_bottom = 64.0
+margin_top = 15.0
+margin_right = 492.0
+margin_bottom = 65.0
 texture_normal = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -39,9 +39,9 @@ __meta__ = {
 
 [node name="ClearButton" type="TextureButton" parent="."]
 margin_left = 386.0
-margin_top = 14.0
-margin_right = 434.0
-margin_bottom = 62.0
+margin_top = 15.0
+margin_right = 436.0
+margin_bottom = 65.0
 texture_normal = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
