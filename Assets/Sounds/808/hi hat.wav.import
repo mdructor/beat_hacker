@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hi hat.wav-50639b1c3f034c0fb41b9c8cfa733c68.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/808/hi hat.wav"
+dest_files=[ "res://.import/hi hat.wav-50639b1c3f034c0fb41b9c8cfa733c68.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
