@@ -57,7 +57,6 @@ func _on_LevelList_item_selected(index):
 	for i in range(starsToFill):
 		var s = "DiffStar" + str(i)
 		find_node(s).set_texture(starFillTex)
-	
 
 
 func _on_StartButton_pressed():
@@ -71,6 +70,33 @@ func _on_StartButton_pressed():
 			var index = find_node("LevelList").get_selected_items()[0]
 			startNewLevel(index)
 		
+
+func _onSubmit():
+	# 1.) Check current level from list selection
+	# 2.) Step through the sequence buttons and save points in an array
+	# 3.) Determine if beat is correct or not
+	var selectedLvl = get_node("LevelList").get_selected_items()[0]
+	var submission = get_node("Sequencer")._getChecked()
+	
+	var correct = 0
+	var incorrect = 0
+	
+	for p1 in _levels[selectedLvl]._beatData:
+		for p2 in submission:
+			if p1 == p2:
+				correct += 1
+	
+	for p1 in submission:
+		var found = false
+		for p2 in _levels[selectedLvl]._beatData:
+			if p1 == p2:
+				found = true
+		if !found:
+			incorrect += 1
+	
+	var resultsPopup = get_node("ResultsDialog")
+	resultsPopup.dialog_text = str(correct) + " correct\t" + str(incorrect) + " incorrect."
+	resultsPopup.popup_centered()
 
 func startNewLevel(index):
 	var active_level = _levels[index]
@@ -90,3 +116,4 @@ func metronomePlayTick():
 	if _metronomeTick == 5:
 		get_node("CountdownPopup").hide()
 		_metronomeTick = 0
+
