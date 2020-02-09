@@ -44,9 +44,13 @@ func _on_PlayButton_pressed():
 		find_node("PlayButton").find_node("PlayLabel").set_text("Play")
 	else:
 		_timer = Timer.new()
+		var bps = _BPM * 1.0 / 60.0
+		var tick_rate = bps / 2.0
 		_timer.connect("timeout", self, "_on_play_tick")
+		_timer.set_one_shot(false)
+		_timer
 		add_child(_timer)
-		_timer.start()
+		_timer.start(tick_rate)
 		find_node("PlayButton").find_node("PlayLabel").set_text("Stop")
 	_isPlaying = !_isPlaying
 		
