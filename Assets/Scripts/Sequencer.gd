@@ -36,6 +36,10 @@ func _ready():
 func initialize_sample_buttons():
 	_sampleButtons[0].initialize("Kick", "808-Kick")
 	_sampleButtons[1].initialize("Snare", "808-Snare")
+	_sampleButtons[2].initialize("HatClosed", "808-HatClosed")
+	_sampleButtons[3].initialize("HatOpen", "808-HatOpen")
+	_sampleButtons[4].initialize("Clap", "808-Clap")
+	_sampleButtons[5].initialize("Cymbal", "808-Cymbal")
 
 
 func _on_PlayButton_pressed():
