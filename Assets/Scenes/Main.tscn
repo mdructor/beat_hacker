@@ -121,9 +121,9 @@ __meta__ = {
 visible = false
 
 [node name="ResultsDialog" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [node name="CountdownPopup" parent="." instance=ExtResource( 7 )]
-visible = true
 margin_left = 468.0
 margin_top = 284.0
 margin_right = 508.0

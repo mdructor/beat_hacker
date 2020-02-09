@@ -6,6 +6,7 @@ onready var starFillTex = preload("res://Assets/Images/star_fill.png")
 var _levelActive = false
 var _levels = []
 var _metronomeTick = 0
+var _metronomeTimer = null
 
 class Level:
 	var _name = ""
@@ -57,6 +58,9 @@ func _on_LevelList_item_selected(index):
 	for i in range(starsToFill):
 		var s = "DiffStar" + str(i)
 		find_node(s).set_texture(starFillTex)
+		
+	var active_level = _levels[index]
+	find_node("Sequencer").set_bpm(active_level._bpm)
 
 
 func _on_StartButton_pressed():
@@ -100,20 +104,27 @@ func _onSubmit():
 
 func startNewLevel(index):
 	var active_level = _levels[index]
-	find_node("Sequencer").set_bpm(active_level._bpm)
-	find_node("CountdownPopup").popup()
 	var metronome_tick = 1.0 / (active_level._bpm / 60.0)
-	var _timer = Timer.new()
-	_timer.connect("timeout", self, "metronomePlayTick")
-	_timer.set_one_shot(false)
-	add_child(_timer)
-	_timer.start(metronome_tick)
+	_metronomeTimer = Timer.new()
+	_metronomeTimer.connect("timeout", self, "metronomePlayTick")
+	_metronomeTimer.set_one_shot(false)
+	add_child(_metronomeTimer)
+	_metronomeTimer.start(metronome_tick)
 
-func metronomePlayTick():
-	get_node("Sequencer/SampleStreamer/Metronome").play()
-	get_node("CountdownPopup/CountLabel").set_text(str(4-_metronomeTick))
+func metronomePlayTick():	
+	if _metronomeTick == 0:
+		find_node("CountdownPopup").popup()
+	else:
+		get_node("CountdownPopup/CountLabel").set_text(str(4-_metronomeTick))
+	
 	_metronomeTick += 1
+	
 	if _metronomeTick == 5:
 		get_node("CountdownPopup").hide()
+		get_node("CountdownPopup/CountLabel").set_text("4")
 		_metronomeTick = 0
+		_metronomeTimer.stop()
+	else:
+		get_node("Sequencer/SampleStreamer/Metronome").play()
+		
 
