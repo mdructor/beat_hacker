@@ -1,0 +1,22 @@
+[gd_scene format=2]
+
+[node name="ConfirmationDialog" type="AcceptDialog"]
+visible = true
+margin_left = 2.0
+margin_top = 25.0
+margin_right = 424.0
+margin_bottom = 270.0
+popup_exclusive = true
+window_title = "Welcome!"
+dialog_text = "Hello world!
+
+I am a rhythm simulation game awaiting to be experimented
+on.  You can use my beat sequencer below to make cool beats 
+and learn how to become a digital musician. 
+
+Once you are comfortable with using the sequencer, it's time
+to start hacking! Start by choosing a level and then you will 
+hear a beat played back to you. Your goal is to listen to the beat
+and then match that beat back on your sequencer.
+
+"
