@@ -6,8 +6,9 @@
 [ext_resource path="res://Assets/Fonts/oswald24.tres" type="DynamicFont" id=4]
 
 [node name="Sequencer" type="ColorRect"]
-margin_right = 505.0
+margin_right = 950.0
 margin_bottom = 550.0
+rect_min_size = Vector2( 950, 550 )
 color = Color( 0, 0, 0, 1 )
 script = ExtResource( 1 )
 __meta__ = {
