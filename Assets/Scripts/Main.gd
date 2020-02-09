@@ -58,3 +58,17 @@ func _on_LevelList_item_selected(index):
 		var s = "DiffStar" + str(i)
 		find_node(s).set_texture(starFillTex)
 	
+
+
+func _on_StartButton_pressed():
+	if _levelActive:
+		find_node("StartButton").set_text("Start")
+		_levelActive = false
+	else:
+		find_node("StartButton").set_text("Quit")
+		_levelActive = true
+		startNewLevel()
+		
+
+func startNewLevel():
+	pass

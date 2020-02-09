@@ -117,4 +117,5 @@ __meta__ = {
 
 [node name="ConfirmationDialog" parent="." instance=ExtResource( 4 )]
 visible = false
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="item_selected" from="LevelList" to="." method="_on_LevelList_item_selected"]
