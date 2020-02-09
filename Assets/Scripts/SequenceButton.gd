@@ -19,6 +19,14 @@ func _on_SequenceButton_pressed():
 		
 	_isChecked = !_isChecked
 
+func check(on):
+	if on:
+		_isChecked = true
+		texture_normal = _blueSquareDown
+	else:
+		_isChecked = false
+		texture_normal = _blueSquare
+
 func set_state(state):
 	_isEnabled = state
 	

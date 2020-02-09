@@ -78,3 +78,7 @@ func _on_play_tick():
 		_tickCount += 1
 
 
+func _on_ClearButton_pressed():
+	for i in range(8):
+		for j in range(8):
+			_sequenceButtons[i][j].check(false)
