@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Scenes/Sequencer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/sharetechbig.tres" type="DynamicFont" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Scenes/WelcomeDialog.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Images/star.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Scenes/ResultsDialog.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Scenes/CountdownPopup.tscn" type="PackedScene" id=7]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 3 )
@@ -120,5 +121,12 @@ __meta__ = {
 visible = false
 
 [node name="ResultsDialog" parent="." instance=ExtResource( 6 )]
+
+[node name="CountdownPopup" parent="." instance=ExtResource( 7 )]
+visible = true
+margin_left = 468.0
+margin_top = 284.0
+margin_right = 508.0
+margin_bottom = 324.0
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="item_selected" from="LevelList" to="." method="_on_LevelList_item_selected"]

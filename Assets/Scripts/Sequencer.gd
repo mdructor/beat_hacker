@@ -60,10 +60,8 @@ func _on_PlayButton_pressed():
 		var bps = _BPM / 60.0
 		var tick_rate = 1 / bps / 2
 	
-		print(tick_rate)
 		_timer.connect("timeout", self, "_on_play_tick")
 		_timer.set_one_shot(false)
-		_timer
 		add_child(_timer)
 		_timer.start(tick_rate)
 		find_node("PlayButton").find_node("PlayLabel").set_text("Stop")
@@ -98,3 +96,8 @@ func _getChecked():
 			if _sequenceButtons[i][j]._isChecked:
 				res.append(Vector2(i,j))
 	return res
+
+func set_bpm(bpm):
+	_BPM = bpm
+	find_node("BpmRect").find_node("BpmText").set_text(str(_BPM))
+
