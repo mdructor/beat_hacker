@@ -12,7 +12,7 @@ var _sequenceButtons = []
 func _ready():
 	var sampleButton = preload("res://Assets/Scenes/SampleButton.tscn")
 	var sequenceButton = preload("res://Assets/Scenes/SequenceButton.tscn")
-	var y = 10.0
+	var y = 125
 	
 	for i in range(8):
 		var samp_instance = sampleButton.instance()
@@ -29,8 +29,15 @@ func _ready():
 			add_child(_sequenceButtons[i][j])
 			x += 54
 		y += 52# Replace with function body.
+	
+	initialize_sample_buttons()
+
+func initialize_sample_buttons():
+	_sampleButtons[0].initialize("Kick", "808-Kick")
+	_sampleButtons[1].initialize("Snare", "808-Snare")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_PlayButton_pressed():
+	if (_isPlaying):
+		if _timer != null:
+			pass

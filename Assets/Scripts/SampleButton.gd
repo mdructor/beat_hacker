@@ -13,14 +13,13 @@ func initialize(buttonText, sampleName, samplePack = ""):
 	_buttonText = buttonText
 	_sampleName = sampleName
 	_samplePack = samplePack
-	find_node("SampleName").text = _buttonText
-		
+	find_node("SampleName").set_text(_buttonText)		
 
 func _on_SampleButton_pressed():
 	if _sampleName == "":
 		return
-	var player = find_parent("SamplePlayer")
+	var player = find_parent("Sequencer").find_node("SampleStreamer")
 	if _samplePack != "":
-		player = player.find_child(_samplePack)
-	player = player.find_child(_sampleName)
+		player = player.find_node(_samplePack)
+	player = player.find_node(_sampleName)
 	player.play()
