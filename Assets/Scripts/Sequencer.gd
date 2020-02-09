@@ -57,8 +57,10 @@ func _on_PlayButton_pressed():
 		_tickCount = 0
 	else:
 		_timer = Timer.new()
-		var bps = _BPM * 1.0 / 60.0
-		var tick_rate = bps / 8.0
+		var bps = _BPM / 60.0
+		var tick_rate = 1 / bps / 2
+	
+		print(tick_rate)
 		_timer.connect("timeout", self, "_on_play_tick")
 		_timer.set_one_shot(false)
 		_timer
