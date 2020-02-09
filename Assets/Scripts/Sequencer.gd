@@ -40,7 +40,7 @@ func initialize_sample_buttons():
 func _on_PlayButton_pressed():
 	if (_isPlaying):
 		_timer.stop()
-		# remove_child(_timer)
+		remove_child(_timer)
 		find_node("PlayButton").find_node("PlayLabel").set_text("Play")
 	else:
 		_timer = Timer.new()
