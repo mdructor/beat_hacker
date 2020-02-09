@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Scenes/Sequencer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/sharetechbig.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/Scripts/Main.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Scenes/WelcomeDialog.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Images/star.png" type="Texture" id=5]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 3 )
@@ -60,10 +61,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="DiffStar0" type="TextureRect" parent="."]
+margin_left = 435.0
+margin_top = 40.0
+margin_right = 499.0
+margin_bottom = 104.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiffStar1" type="TextureRect" parent="."]
+margin_left = 508.0
+margin_top = 40.0
+margin_right = 572.0
+margin_bottom = 104.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiffStar2" type="TextureRect" parent="."]
+margin_left = 582.0
+margin_top = 40.0
+margin_right = 646.0
+margin_bottom = 104.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TimeLabel" type="Label" parent="."]
-margin_left = 681.0
+margin_left = 692.0
 margin_top = 12.0
-margin_right = 879.0
+margin_right = 890.0
 margin_bottom = 58.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = ExtResource( 2 )
@@ -73,9 +104,9 @@ __meta__ = {
 }
 
 [node name="DescriptionLabel" type="Label" parent="."]
-margin_left = 480.0
+margin_left = 483.0
 margin_top = 12.0
-margin_right = 722.0
+margin_right = 725.0
 margin_bottom = 58.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_fonts/font = ExtResource( 2 )
@@ -86,3 +117,5 @@ __meta__ = {
 
 [node name="ConfirmationDialog" parent="." instance=ExtResource( 4 )]
 visible = false
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="item_selected" from="LevelList" to="." method="_on_LevelList_item_selected"]
