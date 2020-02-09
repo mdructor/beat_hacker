@@ -116,7 +116,20 @@ func _onSubmit():
 			incorrect += 1
 	
 	var resultsPopup = get_node("ResultsDialog")
-	resultsPopup.dialog_text = str(correct) + " correct, " + str(incorrect) + " incorrect."
+	if incorrect == 0:
+		resultsPopup.window_title = "Nice job!!!"
+	elif incorrect < 3:
+		resultsPopup.window_title = "Close one!"
+	else:
+		resultsPopup.window_title = "Better luck next time!"
+		
+	if incorrect == 0:
+		get_node("CheerSound").play()
+	else:
+		get_node("NegSound").play()
+			
+		
+	resultsPopup.dialog_text = str(correct) + " correct\n" + str(incorrect) + " incorrect"
 	resultsPopup.popup_centered()
 	
 	get_node("SubmitButton").disabled = true
