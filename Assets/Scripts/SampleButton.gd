@@ -17,6 +17,8 @@ func initialize(buttonText, sampleName, samplePack = ""):
 		
 
 func _on_SampleButton_pressed():
+	if _sampleName = "":
+		return
 	var player = find_parent("SamplePlayer")
 	if _samplePack != "":
 		player = player.find_child(_samplePack)
