@@ -1,5 +1,6 @@
 extends ColorRect
 
+var _ticks = 16
 var _BPM = 120
 var _volume = 100
 var _isPlaying = false
@@ -23,11 +24,13 @@ func _ready():
 		
 		_sequenceButtons.append([])
 		var x = 64.0
-		for j in range(8):
+		for j in range(_ticks):
 			var seq_instance = sequenceButton.instance()
 			seq_instance.set_position(Vector2(x, y))
 			_sequenceButtons[i].append(seq_instance)
 			add_child(_sequenceButtons[i][j])
+			if (j+1)%4 == 0:
+				x += 4.0
 			x += 54
 		y += 52# Replace with function body.
 	
@@ -45,13 +48,13 @@ func _on_PlayButton_pressed():
 		find_node("PlayButton").find_node("PlayLabel").set_text("Play")
 		
 		for i in range(8):
-			for j in range(8):
+			for j in range(_ticks):
 				_sequenceButtons[i][j]._light_up(false)
 		_tickCount = 0
 	else:
 		_timer = Timer.new()
 		var bps = _BPM * 1.0 / 60.0
-		var tick_rate = bps / 4.0
+		var tick_rate = bps / 8.0
 		_timer.connect("timeout", self, "_on_play_tick")
 		_timer.set_one_shot(false)
 		_timer
@@ -65,14 +68,14 @@ func _on_play_tick():
 		_sequenceButtons[i][_tickCount]._light_up(true)
 		
 		if _tickCount == 0:
-			_sequenceButtons[i][7]._light_up(false)
+			_sequenceButtons[i][_ticks-1]._light_up(false)
 		else:
 			_sequenceButtons[i][_tickCount-1]._light_up(false)
 			
 		if _sequenceButtons[i][_tickCount]._isChecked:
 			_sampleButtons[i]._on_SampleButton_pressed()
 	
-	if (_tickCount == 7):
+	if (_tickCount == _ticks-1):
 		_tickCount = 0
 	else:
 		_tickCount += 1
