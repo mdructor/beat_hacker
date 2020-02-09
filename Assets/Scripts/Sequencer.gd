@@ -11,7 +11,6 @@ var _lvl = null
 var _sampleButtons = []
 var _sequenceButtons = []
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	var sampleButton = preload("res://Assets/Scenes/SampleButton.tscn")
 	var sequenceButton = preload("res://Assets/Scenes/SequenceButton.tscn")
@@ -33,7 +32,7 @@ func _ready():
 			if (j+1)%4 == 0:
 				x += 4.0
 			x += 54
-		y += 52# Replace with function body.
+		y += 52
 	
 	initialize_sample_buttons()
 

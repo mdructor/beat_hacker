@@ -8,9 +8,6 @@ var _pinkSquare = preload("res://Assets/Images/pink_square.png")
 var _isChecked = false
 var _isEnabled = true
 
-func _ready():
-	pass 
-
 func _on_SequenceButton_pressed():
 	if (_isChecked):
 		texture_normal = _blueSquare

@@ -12,7 +12,6 @@ class Level:
 		_beatData = beatData
 		_bpm = bpm
 
-
 onready var starTex = preload("res://Assets/Images/star.png")
 onready var starFillTex = preload("res://Assets/Images/star_fill.png")
 
@@ -21,8 +20,6 @@ var _levels = []
 var _metronomeTick = 0
 var _metronomeTimer = null
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node("ConfirmationDialog").popup_centered()
 	createLevels()
@@ -42,20 +39,38 @@ func createLevels():
 					Vector2(2,11),Vector2(2,12),Vector2(2,13),Vector2(2,14),
 					Vector2(2,15),Vector2(1,2),Vector2(0,4),Vector2(1,6),
 					Vector2(0,8),Vector2(1,10),Vector2(0,12),Vector2(1,14)]
+	var lvl4Data = [Vector2(0,0),Vector2(0,1),Vector2(1,2),Vector2(0,4),
+					Vector2(0,5),Vector2(1,6),Vector2(0,8),Vector2(0,9),
+					Vector2(1,10),Vector2(0,12),Vector2(0,13),Vector2(1,14),
+					Vector2(2,0),Vector2(2,1),Vector2(2,2),Vector2(2,3),Vector2(2,4),
+					Vector2(2,5),Vector2(2,6),Vector2(2,7),Vector2(2,8),
+					Vector2(2,9),Vector2(2,10),Vector2(2,11),Vector2(2,12),
+					Vector2(2,13),Vector2(2,14),Vector2(3,15)]
+	var lvl5Data = [Vector2(0,0),Vector2(2,0),Vector2(1,2),Vector2(2,2),Vector2(0,3),
+					Vector2(2,4),Vector2(0,5),Vector2(1,6),Vector2(2,6),Vector2(2,8),
+					Vector2(0,9),Vector2(1,10),Vector2(2,10),Vector2(0,12),Vector2(2,12),
+					Vector2(1,14),Vector2(2,14)]
+	var lvl6Data = [Vector2(1,0),Vector2(0,1),Vector2(0,2),Vector2(1,3),Vector2(0,4),
+					Vector2(0,5),Vector2(1,6),Vector2(0,7),Vector2(1,8),Vector2(0,9),
+					Vector2(0,10),Vector2(1,11),Vector2(0,12),Vector2(0,13),Vector2(1,14),
+					Vector2(0,15),Vector2(5,0),Vector2(5,1),Vector2(5,2),Vector2(5,3),
+					Vector2(5,4),Vector2(5,5),Vector2(5,6),Vector2(5,7),Vector2(5,8),
+					Vector2(5,9),Vector2(5,10),Vector2(5,11),Vector2(5,12),Vector2(5,13),
+					Vector2(5,14),Vector2(5,15)]
 	
 	var lvl1 = Level.new("Earn Your (White) Stripes", 1, lvl1Data, 120)
 	var lvl2 = Level.new("We will, We will hack you!", 1, lvl2Data, 81)
 	var lvl3 = Level.new("weezer type beat", 2, lvl3Data, 115)
+	var lvl4 = Level.new("Smells like sooner spirit", 2, lvl4Data, 116)
+	var lvl5 = Level.new("Down the beat labyrinth", 3, lvl5Data, 181)
+	var lvl6 = Level.new("tfw coldplay = final boss", 3, lvl6Data,130)
 	
 	_levels.append(lvl1)
 	_levels.append(lvl2)
 	_levels.append(lvl3)
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	_levels.append(lvl4)
+	_levels.append(lvl5)
+	_levels.append(lvl6)
 
 func _on_LevelList_item_selected(index):
 	var starsToFill = _levels[index]._difficulty
