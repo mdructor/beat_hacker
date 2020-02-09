@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Scenes/Sequencer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/sharetechbig.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/Scripts/Main.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Scenes/WelcomeDialog.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Images/star.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Scenes/ResultsDialog.tscn" type="PackedScene" id=6]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 3 )
@@ -117,5 +118,7 @@ __meta__ = {
 
 [node name="ConfirmationDialog" parent="." instance=ExtResource( 4 )]
 visible = false
+
+[node name="ResultsDialog" parent="." instance=ExtResource( 6 )]
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="item_selected" from="LevelList" to="." method="_on_LevelList_item_selected"]

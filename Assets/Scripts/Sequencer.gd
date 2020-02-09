@@ -86,8 +86,15 @@ func _on_play_tick():
 	else:
 		_tickCount += 1
 
-
 func _on_ClearButton_pressed():
 	for i in range(8):
 		for j in range(_ticks):
 			_sequenceButtons[i][j].check(false)
+
+func _getChecked():
+	var res = []
+	for i in range(8):
+		for j in range(_ticks):
+			if _sequenceButtons[i][j]._isChecked:
+				res.append(Vector2(i,j))
+	return res
