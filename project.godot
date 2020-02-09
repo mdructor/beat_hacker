@@ -19,6 +19,10 @@ config/name="beat_hacker"
 run/main_scene="res://Assets/Scenes/Main.tscn"
 config/icon="res://Assets/Images/icon.png"
 
+[display]
+
+window/size/height=700
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
