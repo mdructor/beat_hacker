@@ -44,6 +44,8 @@ func initialize_sample_buttons():
 	_sampleButtons[3].initialize("HatOpen", "808-HatOpen")
 	_sampleButtons[4].initialize("Clap", "808-Clap")
 	_sampleButtons[5].initialize("Cymbal", "808-Cymbal")
+	_sampleButtons[6].initialize("TomHi", "808-TomHi")
+	_sampleButtons[7].initialize("TomLo", "808-TomLo")
 
 
 func _on_PlayButton_pressed():

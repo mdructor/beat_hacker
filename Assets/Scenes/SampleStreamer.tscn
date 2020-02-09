@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Sounds/808/808-Snare.wav" type="AudioStream" id=1]
 [ext_resource path="res://Assets/Sounds/808/808-Kick.wav" type="AudioStream" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Sounds/808/cymbal.wav" type="AudioStream" id=5]
 [ext_resource path="res://Assets/Sounds/808/clap.wav" type="AudioStream" id=6]
 [ext_resource path="res://Assets/Sounds/metronome.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Sounds/808/tom1.WAV" type="AudioStream" id=8]
 
 [node name="SampleStreamer" type="Node"]
 
@@ -27,6 +28,11 @@ stream = ExtResource( 6 )
 
 [node name="808-Cymbal" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+
+[node name="808-TomLo" type="AudioStreamPlayer" parent="."]
+
+[node name="808-TomHi" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 
 [node name="Metronome" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )

@@ -1,13 +1,5 @@
 extends Node2D
 
-onready var starTex = preload("res://Assets/Images/star.png")
-onready var starFillTex = preload("res://Assets/Images/star_fill.png")
-
-var _levelActive = false
-var _levels = []
-var _metronomeTick = 0
-var _metronomeTimer = null
-
 class Level:
 	var _name = ""
 	var _difficulty = 1
@@ -19,6 +11,16 @@ class Level:
 		_difficulty = difficulty
 		_beatData = beatData
 		_bpm = bpm
+
+
+onready var starTex = preload("res://Assets/Images/star.png")
+onready var starFillTex = preload("res://Assets/Images/star_fill.png")
+
+var _levelActive = false
+var _levels = []
+var _metronomeTick = 0
+var _metronomeTimer = null
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,8 +43,8 @@ func createLevels():
 					Vector2(2,15),Vector2(1,2),Vector2(0,4),Vector2(1,6),
 					Vector2(0,8),Vector2(1,10),Vector2(0,12),Vector2(1,14)]
 	
-	var lvl1 = Level.new("earn your stripes", 1, lvl1Data, 120)
-	var lvl2 = Level.new("we will hack u", 1, lvl2Data, 81)
+	var lvl1 = Level.new("Earn Your (White) Stripes", 1, lvl1Data, 120)
+	var lvl2 = Level.new("We will, We will hack you!", 1, lvl2Data, 81)
 	var lvl3 = Level.new("weezer type beat", 2, lvl3Data, 115)
 	
 	_levels.append(lvl1)
@@ -120,7 +122,7 @@ func _onSubmit():
 	resultsPopup.popup_centered()
 	
 	get_node("SubmitButton").disabled = true
-	_on_StartButton_pressed()
+	toggleStart()
 
 func startNewLevel(index):
 	var active_level = _levels[index]
