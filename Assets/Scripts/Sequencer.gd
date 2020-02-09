@@ -147,5 +147,6 @@ func _on_level_play_tick():
 	elif _tickCount == -1:
 		_timer.stop()
 		_tickCount = 0
+		_isPlaying = false
 	else:
 		_tickCount += 1
