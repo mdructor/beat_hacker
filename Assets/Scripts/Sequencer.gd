@@ -40,4 +40,8 @@ func initialize_sample_buttons():
 func _on_PlayButton_pressed():
 	if (_isPlaying):
 		if _timer != null:
-			pass
+			_timer.stop()
+			remove_child(_timer)
+			_timer = null
+	else:
+		_timer = Timer.new()
