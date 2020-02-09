@@ -29,11 +29,18 @@ func _on_SequenceButton_pressed():
 		
 	_isChecked = !_isChecked
 
-func set_state(var state):
+func set_state(state):
 	_isEnabled = state
 	
-func _light_up():
-	if (_isChecked):
-		texture_normal = _redSquare
+func _light_up(flag):
+	if (flag):
+		if (_isChecked):
+			texture_normal = _redSquare
+		else:
+			texture_normal = _darkBlueSquare
 	else:
-		texture_normal = _darkBlueSquare
+		if (_isChecked):
+			texture_normal = _blueSquareDown
+		else:
+			texture_normal = _blueSquare
+	

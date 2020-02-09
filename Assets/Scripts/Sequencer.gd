@@ -1,9 +1,10 @@
 extends ColorRect
 
-var _BPM = 100
+var _BPM = 120
 var _volume = 100
 var _isPlaying = false
 var _timer = false
+var _tickCount = 0
 
 var _sampleButtons = []
 var _sequenceButtons = []
@@ -42,10 +43,15 @@ func _on_PlayButton_pressed():
 		_timer.stop()
 		remove_child(_timer)
 		find_node("PlayButton").find_node("PlayLabel").set_text("Play")
+		
+		for i in range(8):
+			for j in range(8):
+				_sequenceButtons[i][j]._light_up(false)
+		_tickCount = 0
 	else:
 		_timer = Timer.new()
 		var bps = _BPM * 1.0 / 60.0
-		var tick_rate = bps / 2.0
+		var tick_rate = bps / 4.0
 		_timer.connect("timeout", self, "_on_play_tick")
 		_timer.set_one_shot(false)
 		_timer
@@ -55,4 +61,20 @@ func _on_PlayButton_pressed():
 	_isPlaying = !_isPlaying
 		
 func _on_play_tick():
-	pass
+	for i in range(8):
+		_sequenceButtons[i][_tickCount]._light_up(true)
+		
+		if _tickCount == 0:
+			_sequenceButtons[i][7]._light_up(false)
+		else:
+			_sequenceButtons[i][_tickCount-1]._light_up(false)
+			
+		if _sequenceButtons[i][_tickCount]._isChecked:
+			_sampleButtons[i]._on_SampleButton_pressed()
+	
+	if (_tickCount == 7):
+		_tickCount = 0
+	else:
+		_tickCount += 1
+
+
