@@ -29,12 +29,17 @@ func _ready():
 
 func createLevels():
 	# Create beat data
-	var lvl1Data = [Vector2(0,0),Vector2(0,4),Vector2(0,8),Vector2(0,12)]
-	var lvl2Data = [Vector2(0,0),Vector2(0,2),Vector2(1,4),Vector2(0,8),
-					Vector2(0,10),Vector2(1,12)]
-	var lvl3Data = [Vector2(0,0),Vector2(2,0),Vector2(2,2),Vector2(1,4),
-					Vector2(2,4),Vector2(2,6),Vector2(0,8),Vector2(2,8),
-					Vector2(2,10),Vector2(1,12),Vector2(2,12),Vector2(2,14)]
+	var lvl1Data = [Vector2(0,0),Vector2(0,2),Vector2(0,4),Vector2(0,6),
+					Vector2(0,8),Vector2(0,10),Vector2(0,12),Vector2(0,14)]
+	var lvl2Data = [Vector2(0,0),Vector2(0,1),Vector2(1,2),Vector2(0,4),
+					Vector2(0,5),Vector2(1,6),Vector2(0,8),Vector2(0,9),
+					Vector2(1,10),Vector2(0,12),Vector2(0,13),Vector2(1,14)]
+	var lvl3Data = [Vector2(0,0),Vector2(2,0),Vector2(2,1),Vector2(2,2),
+					Vector2(2,3),Vector2(2,4),Vector2(2,5),Vector2(2,6),
+					Vector2(2,7),Vector2(2,8),Vector2(2,9),Vector2(2,10),
+					Vector2(2,11),Vector2(2,12),Vector2(2,13),Vector2(2,14),
+					Vector2(2,15),Vector2(1,2),Vector2(0,4),Vector2(1,6),
+					Vector2(0,8),Vector2(1,10),Vector2(0,12),Vector2(1,14)]
 	
 	var lvl1 = Level.new("earn your stripes", 1, lvl1Data, 120)
 	var lvl2 = Level.new("we will hack u", 1, lvl2Data, 81)
@@ -67,12 +72,14 @@ func _on_StartButton_pressed():
 	if _levelActive:
 		find_node("StartButton").set_text("Start")
 		_levelActive = false
+		get_node("SubmitButton").disabled = true
 	else:
 		if find_node("LevelList").is_anything_selected():
 			find_node("StartButton").set_text("Quit")
 			_levelActive = true
 			var index = find_node("LevelList").get_selected_items()[0]
 			startNewLevel(index)
+			get_node("SubmitButton").disabled = false
 		
 
 func _onSubmit():
@@ -99,7 +106,7 @@ func _onSubmit():
 			incorrect += 1
 	
 	var resultsPopup = get_node("ResultsDialog")
-	resultsPopup.dialog_text = str(correct) + " correct\t" + str(incorrect) + " incorrect."
+	resultsPopup.dialog_text = str(correct) + " correct, " + str(incorrect) + " incorrect."
 	resultsPopup.popup_centered()
 
 func startNewLevel(index):
