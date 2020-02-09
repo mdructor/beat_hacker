@@ -93,9 +93,13 @@ func _onSubmit():
 	var incorrect = 0
 	
 	for p1 in _levels[selectedLvl]._beatData:
+		var found = false
 		for p2 in submission:
 			if p1 == p2:
 				correct += 1
+				found = true
+		if !found:
+			incorrect += 1
 	
 	for p1 in submission:
 		var found = false
@@ -108,6 +112,9 @@ func _onSubmit():
 	var resultsPopup = get_node("ResultsDialog")
 	resultsPopup.dialog_text = str(correct) + " correct, " + str(incorrect) + " incorrect."
 	resultsPopup.popup_centered()
+	
+	get_node("SubmitButton").disabled = true
+	_on_StartButton_pressed()
 
 func startNewLevel(index):
 	var active_level = _levels[index]
@@ -131,6 +138,9 @@ func metronomePlayTick():
 		get_node("CountdownPopup/CountLabel").set_text("4")
 		_metronomeTick = 0
 		_metronomeTimer.stop()
+		
+		var selectedLvl = get_node("LevelList").get_selected_items()[0]
+		get_node("Sequencer").playLevelSequence(_levels[selectedLvl])
 	else:
 		get_node("Sequencer/SampleStreamer/Metronome").play()
 		

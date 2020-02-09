@@ -6,6 +6,7 @@ var _volume = 100
 var _isPlaying = false
 var _timer = false
 var _tickCount = 0
+var _lvl = null
 
 var _sampleButtons = []
 var _sequenceButtons = []
@@ -101,3 +102,48 @@ func set_bpm(bpm):
 	_BPM = bpm
 	find_node("BpmRect").find_node("BpmText").set_text(str(_BPM))
 
+func playLevelSequence(lvl):
+	_lvl = lvl
+	
+	if (_isPlaying):
+		_timer.stop()
+		remove_child(_timer)
+		find_node("PlayButton").find_node("PlayLabel").set_text("Play")
+		
+		for i in range(8):
+			for j in range(_ticks):
+				_sequenceButtons[i][j]._light_up(false)
+		_tickCount = 0
+	else:
+		_timer = Timer.new()
+		var bps = _BPM / 60.0
+		var tick_rate = 1 / bps / 2
+	
+		_timer.connect("timeout", self, "_on_level_play_tick")
+		_timer.set_one_shot(false)
+		add_child(_timer)
+		_timer.start(tick_rate)
+	_isPlaying = !_isPlaying
+
+func _on_level_play_tick():
+	for i in range(8):
+		_sequenceButtons[i][_tickCount]._light_up(true)
+		
+		if _tickCount == 0 || _tickCount == -1:
+			_sequenceButtons[i][_ticks-1]._light_up(false)
+		else:
+			_sequenceButtons[i][_tickCount-1]._light_up(false)
+			
+			
+		var coords = Vector2(i, _tickCount)
+		for j in _lvl._beatData:
+			if j == coords:
+				_sampleButtons[i]._on_SampleButton_pressed()
+	
+	if (_tickCount == _ticks-1):
+		_tickCount = -1
+	elif _tickCount == -1:
+		_timer.stop()
+		_tickCount = 0
+	else:
+		_tickCount += 1
