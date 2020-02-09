@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hh.wav-d06133d791c9f095bd9afed9deb5f8d9.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/808/hh.wav"
+dest_files=[ "res://.import/hh.wav-d06133d791c9f095bd9afed9deb5f8d9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
