@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Scenes/Sequencer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/sharetechbig.tres" type="DynamicFont" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Assets/Scenes/ResultsDialog.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Scenes/CountdownPopup.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Sounds/ui/Click.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Sounds/ui/negative.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Sounds/ui/cheering.wav" type="AudioStream" id=10]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 3 )
@@ -122,7 +124,10 @@ __meta__ = {
 visible = false
 
 [node name="ResultsDialog" parent="." instance=ExtResource( 6 )]
-visible = false
+margin_left = 22.0
+margin_top = 19.0
+margin_right = 422.0
+margin_bottom = 159.0
 
 [node name="CountdownPopup" parent="." instance=ExtResource( 7 )]
 margin_left = 468.0
@@ -132,6 +137,12 @@ margin_bottom = 324.0
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+
+[node name="NegSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="CheerSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="SubmitButton" to="." method="_onSubmit"]
 [connection signal="item_selected" from="LevelList" to="." method="_on_LevelList_item_selected"]
