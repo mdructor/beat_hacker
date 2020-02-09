@@ -39,9 +39,16 @@ func initialize_sample_buttons():
 
 func _on_PlayButton_pressed():
 	if (_isPlaying):
-		if _timer != null:
-			_timer.stop()
-			remove_child(_timer)
-			_timer = null
+		_timer.stop()
+		# remove_child(_timer)
+		find_node("PlayButton").find_node("PlayLabel").set_text("Play")
 	else:
 		_timer = Timer.new()
+		_timer.connect("timeout", self, "_on_play_tick")
+		add_child(_timer)
+		_timer.start()
+		find_node("PlayButton").find_node("PlayLabel").set_text("Stop")
+	_isPlaying = !_isPlaying
+		
+func _on_play_tick():
+	pass
