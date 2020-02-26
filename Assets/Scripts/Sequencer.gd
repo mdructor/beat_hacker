@@ -101,7 +101,7 @@ func _getChecked():
 
 func set_bpm(bpm):
 	_BPM = bpm
-	find_node("BpmRect").find_node("BpmText").set_text(str(_BPM))
+	find_node("BpmRect").find_node("BPMSpinner").get_line_edit().set_text(str(_BPM))
 
 func playLevelSequence(lvl):
 	_lvl = lvl
@@ -149,3 +149,7 @@ func _on_level_play_tick():
 		_isPlaying = false
 	else:
 		_tickCount += 1
+
+
+func _on_BPMSpinner_value_changed(value):
+	_BPM = value
