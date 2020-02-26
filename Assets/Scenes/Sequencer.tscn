@@ -3,10 +3,18 @@
 [ext_resource path="res://Assets/Scripts/Sequencer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Scenes/SampleStreamer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Images/pink_circle.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Fonts/oswald_bpm.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/Fonts/oswald_top_ui.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Assets/Images/pink_rectangle.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Fonts/oswald_top_ui.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Assets/Fonts/oswald_bpm.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Assets/Images/soundwave.png" type="Texture" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
@@ -14,16 +22,8 @@
 
 [sub_resource type="StyleBoxEmpty" id=7]
 
-[sub_resource type="StyleBoxEmpty" id=2]
-
-[sub_resource type="StyleBoxEmpty" id=8]
-
-[sub_resource type="StyleBoxEmpty" id=3]
-
-[sub_resource type="StyleBoxEmpty" id=4]
-
-[sub_resource type="Theme" id=1]
-default_font = ExtResource( 4 )
+[sub_resource type="Theme" id=8]
+default_font = ExtResource( 6 )
 Button/colors/font_color = Color( 1, 1, 1, 1 )
 Button/colors/font_color_disabled = Color( 0, 0, 0, 1 )
 Button/colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -195,9 +195,9 @@ LineEdit/colors/selection_color = Color( 0, 0.196078, 0.231373, 1 )
 LineEdit/constants/minimum_spaces = 12
 LineEdit/fonts/font = null
 LineEdit/icons/clear = null
-LineEdit/styles/focus = SubResource( 5 )
-LineEdit/styles/normal = SubResource( 6 )
-LineEdit/styles/read_only = SubResource( 7 )
+LineEdit/styles/focus = SubResource( 1 )
+LineEdit/styles/normal = SubResource( 2 )
+LineEdit/styles/read_only = SubResource( 3 )
 LinkButton/colors/font_color = Color( 0, 0, 0, 1 )
 LinkButton/colors/font_color_hover = Color( 0, 0, 0, 1 )
 LinkButton/colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -232,8 +232,8 @@ OptionButton/styles/focus = null
 OptionButton/styles/hover = null
 OptionButton/styles/normal = null
 OptionButton/styles/pressed = null
-Panel/styles/panel = SubResource( 2 )
-PanelContainer/styles/panel = SubResource( 8 )
+Panel/styles/panel = SubResource( 4 )
+PanelContainer/styles/panel = SubResource( 5 )
 PopupDialog/styles/panel = null
 PopupMenu/colors/font_color = Color( 0, 0, 0, 1 )
 PopupMenu/colors/font_color_accel = Color( 0, 0, 0, 1 )
@@ -253,7 +253,7 @@ PopupMenu/styles/labeled_separator_right = null
 PopupMenu/styles/panel = null
 PopupMenu/styles/panel_disabled = null
 PopupMenu/styles/separator = null
-PopupPanel/styles/panel = SubResource( 3 )
+PopupPanel/styles/panel = SubResource( 6 )
 ProgressBar/colors/font_color = Color( 0, 0, 0, 1 )
 ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
 ProgressBar/fonts/font = null
@@ -276,7 +276,7 @@ RichTextLabel/fonts/mono_font = null
 RichTextLabel/fonts/normal_font = null
 RichTextLabel/styles/focus = null
 RichTextLabel/styles/normal = null
-ScrollContainer/styles/bg = SubResource( 4 )
+ScrollContainer/styles/bg = SubResource( 7 )
 SpinBox/icons/updown = null
 TabContainer/colors/font_color_bg = Color( 0, 0, 0, 1 )
 TabContainer/colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -471,7 +471,7 @@ margin_left = 25.0
 margin_top = 24.0
 margin_right = 53.0
 margin_bottom = 52.0
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 4 )
 text = "Play"
 align = 1
 valign = 1
@@ -495,7 +495,7 @@ margin_left = 23.0
 margin_top = 24.0
 margin_right = 58.0
 margin_bottom = 52.0
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 4 )
 text = "Clear"
 align = 1
 valign = 1
@@ -508,7 +508,7 @@ margin_left = 132.0
 margin_top = 12.0
 margin_right = 162.0
 margin_bottom = 40.0
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 4 )
 text = "BPM"
 align = 1
 valign = 1
@@ -528,11 +528,11 @@ __meta__ = {
 }
 
 [node name="BPMSpinner" type="SpinBox" parent="BpmRect"]
-margin_left = 6.772
-margin_top = 7.41422
-margin_right = 104.772
-margin_bottom = 60.4142
-theme = SubResource( 1 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 124.0
+margin_bottom = 60.0
+theme = SubResource( 8 )
 min_value = 60.0
 max_value = 200.0
 value = 120.0
@@ -546,7 +546,7 @@ margin_left = 304.0
 margin_top = 12.0
 margin_right = 327.0
 margin_bottom = 40.0
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 4 )
 text = "SIG"
 align = 1
 valign = 1
@@ -570,7 +570,7 @@ margin_left = 36.0
 margin_top = 11.0
 margin_right = 74.0
 margin_bottom = 54.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 6 )
 text = "4/4"
 align = 1
 valign = 1
