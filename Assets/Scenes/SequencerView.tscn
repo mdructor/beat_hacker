@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Scenes/Sequencer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Fonts/oswald_top_ui.tres" type="DynamicFont" id=2]
+
+[node name="SequencerView" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 703.0
+color = Color( 0.203922, 0.203922, 0.203922, 1 )
+
+[node name="Sequencer" parent="ColorRect" instance=ExtResource( 1 )]
+margin_left = 35.4242
+margin_top = 111.067
+margin_right = 985.424
+margin_bottom = 661.067
+
+[node name="Label" type="Label" parent="ColorRect"]
+margin_left = 39.6669
+margin_top = 15.8668
+margin_right = 118.667
+margin_bottom = 43.8668
+custom_fonts/font = ExtResource( 2 )
+text = "beat hacker"

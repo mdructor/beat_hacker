@@ -59,3 +59,7 @@ func _on_ExitButton_pressed():
 
 func _on_LevelSelectButton_pressed():
 	get_tree().change_scene("res://Assets/Scenes/Main.tscn")
+
+
+func _on_SequencerButton_pressed():
+	get_tree().change_scene("res://Assets/Scenes/SequencerView.tscn")

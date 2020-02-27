@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Scripts/Sequencer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Scenes/SampleStreamer.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Assets/Images/pink_rectangle.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Fonts/oswald_bpm.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Assets/Images/soundwave.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Images/rythm.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Images/rythmw.png" type="Texture" id=9]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -456,9 +458,9 @@ __meta__ = {
 [node name="SampleStreamer" parent="." instance=ExtResource( 2 )]
 
 [node name="PlayButton" type="TextureButton" parent="."]
-margin_left = 800.0
+margin_left = 846.0
 margin_top = 30.0
-margin_right = 880.0
+margin_right = 926.0
 margin_bottom = 110.0
 texture_normal = ExtResource( 3 )
 expand = true
@@ -480,9 +482,9 @@ __meta__ = {
 }
 
 [node name="ClearButton" type="TextureButton" parent="."]
-margin_left = 700.0
+margin_left = 746.0
 margin_top = 30.0
-margin_right = 780.0
+margin_right = 826.0
 margin_bottom = 110.0
 texture_normal = ExtResource( 3 )
 expand = true
@@ -504,9 +506,9 @@ __meta__ = {
 }
 
 [node name="BpmLabel" type="Label" parent="."]
-margin_left = 132.0
+margin_left = 111.0
 margin_top = 12.0
-margin_right = 162.0
+margin_right = 141.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 4 )
 text = "BPM"
@@ -517,9 +519,9 @@ __meta__ = {
 }
 
 [node name="BpmRect" type="TextureRect" parent="."]
-margin_left = 91.228
+margin_left = 70.228
 margin_top = 36.0
-margin_right = 201.228
+margin_right = 180.228
 margin_bottom = 106.0
 texture = ExtResource( 5 )
 expand = true
@@ -542,9 +544,9 @@ __meta__ = {
 }
 
 [node name="TimSigLabel" type="Label" parent="."]
-margin_left = 304.0
+margin_left = 283.0
 margin_top = 12.0
-margin_right = 327.0
+margin_right = 306.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 4 )
 text = "SIG"
@@ -555,9 +557,9 @@ __meta__ = {
 }
 
 [node name="TimSigRect" type="TextureRect" parent="."]
-margin_left = 260.0
+margin_left = 239.0
 margin_top = 34.7723
-margin_right = 370.0
+margin_right = 349.0
 margin_bottom = 104.772
 texture = ExtResource( 5 )
 expand = true
@@ -579,14 +581,33 @@ __meta__ = {
 }
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-margin_left = 473.888
-margin_top = 2.45538
-margin_right = 601.888
-margin_bottom = 130.455
+margin_left = 437.046
+margin_top = 0.35011
+margin_right = 565.046
+margin_bottom = 128.35
 texture = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 640.526
+margin_top = 34.6842
+margin_right = 710.526
+margin_bottom = 104.684
+texture = ExtResource( 5 )
+expand = true
+
+[node name="MetronomeToggle" type="TextureButton" parent="TextureRect"]
+margin_left = 10.1053
+margin_top = 10.1053
+margin_right = 63.1053
+margin_bottom = 60.1053
+hint_tooltip = "Metronome On/Off"
+toggle_mode = true
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+expand = true
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="ClearButton" to="." method="_on_ClearButton_pressed"]
 [connection signal="value_changed" from="BpmRect/BPMSpinner" to="." method="_on_BPMSpinner_value_changed"]

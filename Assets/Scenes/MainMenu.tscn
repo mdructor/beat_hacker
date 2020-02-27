@@ -61,4 +61,5 @@ rect_min_size = Vector2( 0, 75 )
 custom_fonts/font = ExtResource( 3 )
 text = "Exit"
 [connection signal="pressed" from="ColorRect/VBoxContainer/LevelSelectButton" to="." method="_on_LevelSelectButton_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/SequencerButton" to="." method="_on_SequencerButton_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
