@@ -64,5 +64,8 @@ func _on_SequenceButton_mouse_exited():
 func _on_PopupMenu_index_pressed(index):
 	if get_node("PopupMenu").is_item_checked(index):
 		get_node("PopupMenu").set_item_checked(index, false)
+		get_node("SplitButton").hide()
 	else:
 		get_node("PopupMenu").set_item_checked(index, true)
+		self.rect_scale = Vector2(0.5, 1)
+		get_node("SplitButton").show()
