@@ -5,7 +5,6 @@ var _blueSquare = preload("res://Assets/Images/blue_square.png")
 var _purpleSquare = preload("res://Assets/Images/purple_square.png")
 var _pinkSquare = preload("res://Assets/Images/pink_square.png")
 
-# var _isChecked = false
 var _isEnabled = true
 
 var _isChecked = [false, false]
@@ -77,6 +76,7 @@ func _on_PopupMenu_index_pressed(index):
 	else:
 		get_node("PopupMenu").set_item_checked(index, true)
 		get_node("MainButton").rect_scale = Vector2(0.5, 1)
+		_isSplit = true
 		if _isChecked[1]:
 			get_node("SplitButton").texture_normal = _blueSquareDown
 		get_node("SplitButton").show()
