@@ -8,6 +8,9 @@ var _pinkSquare = preload("res://Assets/Images/pink_square.png")
 var _isChecked = false
 var _isEnabled = true
 
+func _ready():
+	get_node("PopupMenu").add_check_item("Split")
+
 func _on_SequenceButton_pressed():
 	if (_isChecked):
 		texture_normal = _blueSquare
@@ -39,3 +42,27 @@ func _light_up(flag):
 		else:
 			texture_normal = _blueSquare
 	
+
+
+func _on_SequenceButton_gui_input(event):
+	if event is InputEventMouseButton and event.button_index == BUTTON_RIGHT and event.pressed:
+		get_node("PopupMenu").set_position(get_global_mouse_position())
+		get_node("PopupMenu").show()
+
+
+func _check_for_close():
+	if not self.get_global_rect().has_point(get_global_mouse_position()):
+		get_node("PopupMenu").hide()
+
+func _on_PopupMenu_mouse_exited():
+	_check_for_close()
+
+func _on_SequenceButton_mouse_exited():
+	_check_for_close()
+
+
+func _on_PopupMenu_index_pressed(index):
+	if get_node("PopupMenu").is_item_checked(index):
+		get_node("PopupMenu").set_item_checked(index, false)
+	else:
+		get_node("PopupMenu").set_item_checked(index, true)
