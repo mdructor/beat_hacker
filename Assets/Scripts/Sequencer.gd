@@ -7,6 +7,7 @@ var _isPlaying = false
 var _timer = false
 var _tickCount = 0
 var _lvl = null
+var _metronomeOn = false
 
 var _sampleButtons = []
 var _sequenceButtons = []
@@ -14,8 +15,8 @@ var _sequenceButtons = []
 func _ready():
 	var sampleButton = preload("res://Assets/Scenes/SampleButton.tscn")
 	var sequenceButton = preload("res://Assets/Scenes/SequenceButton.tscn")
-	var y = 125
 	
+	var y = 125
 	for i in range(8):
 		var samp_instance = sampleButton.instance()
 		samp_instance.set_position(Vector2(10.0,y))
@@ -60,7 +61,7 @@ func _on_PlayButton_pressed():
 	else:
 		_timer = Timer.new()
 		var bps = _BPM / 60.0
-		var tick_rate = 1 / bps / 2
+		var tick_rate = 1 / bps / 4
 	
 		_timer.connect("timeout", self, "_on_play_tick")
 		_timer.set_one_shot(false)
@@ -80,6 +81,9 @@ func _on_play_tick():
 			
 		if _sequenceButtons[i][_tickCount]._isChecked:
 			_sampleButtons[i]._on_SampleButton_pressed()
+			
+	if (_tickCount % 4 == 0 && _metronomeOn == true):
+		get_node("SampleStreamer/Metronome").play()
 	
 	if (_tickCount == _ticks-1):
 		_tickCount = 0
@@ -140,7 +144,7 @@ func _on_level_play_tick():
 		for j in _lvl._beatData:
 			if j == coords:
 				_sampleButtons[i]._on_SampleButton_pressed()
-	
+		
 	if (_tickCount == _ticks-1):
 		_tickCount = -1
 	elif _tickCount == -1:
@@ -153,3 +157,7 @@ func _on_level_play_tick():
 
 func _on_BPMSpinner_value_changed(value):
 	_BPM = value
+
+
+func _on_MetronomeToggle_toggled(button_pressed):
+	_metronomeOn = button_pressed

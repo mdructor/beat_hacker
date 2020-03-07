@@ -611,3 +611,4 @@ expand = true
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="ClearButton" to="." method="_on_ClearButton_pressed"]
 [connection signal="value_changed" from="BpmRect/BPMSpinner" to="." method="_on_BPMSpinner_value_changed"]
+[connection signal="toggled" from="TextureRect/MetronomeToggle" to="." method="_on_MetronomeToggle_toggled"]
