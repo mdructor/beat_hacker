@@ -40,12 +40,12 @@ func set_state(state):
 	
 func _light_up(flag):
 	if (flag):
-		if (_isChecked):
+		if (_isChecked[0]):
 			get_node("MainButton").texture_normal = _pinkSquare
 		else:
 			get_node("MainButton").texture_normal = _purpleSquare
 	else:
-		if (_isChecked):
+		if (_isChecked[0]):
 			get_node("MainButton").texture_normal = _blueSquareDown
 		else:
 			get_node("MainButton").texture_normal = _blueSquare
@@ -77,4 +77,13 @@ func _on_PopupMenu_index_pressed(index):
 	else:
 		get_node("PopupMenu").set_item_checked(index, true)
 		get_node("MainButton").rect_scale = Vector2(0.5, 1)
+		if _isChecked[1]:
+			get_node("SplitButton").texture_normal = _blueSquareDown
 		get_node("SplitButton").show()
+
+func _on_SplitButton_pressed():
+	if (_isChecked[1]):
+		get_node("SplitButton").texture_normal = _blueSquare
+	else:
+		get_node("SplitButton").texture_normal = _blueSquareDown
+	_isChecked[1] = !_isChecked[1]

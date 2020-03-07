@@ -36,5 +36,6 @@ margin_bottom = 20.0
 [connection signal="mouse_exited" from="MainButton" to="." method="_on_SequenceButton_mouse_exited"]
 [connection signal="pressed" from="MainButton" to="." method="_on_MainButton_pressed"]
 [connection signal="gui_input" from="SplitButton" to="." method="_on_SequenceButton_gui_input"]
+[connection signal="pressed" from="SplitButton" to="." method="_on_SplitButton_pressed"]
 [connection signal="index_pressed" from="PopupMenu" to="." method="_on_PopupMenu_index_pressed"]
 [connection signal="mouse_exited" from="PopupMenu" to="." method="_on_PopupMenu_mouse_exited"]
