@@ -18,13 +18,8 @@ func _on_MainButton_pressed():
 		get_node("MainButton").texture_normal = _blueSquare
 	else:
 		get_node("MainButton").texture_normal = _blueSquareDown
-	
-	# if split, only change main
-	# if not split, change status of both
-	if _isSplit:
-		_isChecked[0] = !_isChecked[0]
-	else:
-		_isChecked = [!_isChecked[0], !_isChecked[0]]
+	_isChecked[0] = !_isChecked[0]
+
 
 func check(on):
 	if on:
@@ -70,6 +65,9 @@ func _on_SequenceButton_mouse_exited():
 
 func _on_PopupMenu_index_pressed(index):
 	if get_node("PopupMenu").is_item_checked(index):
+		_isSplit = false
+		_isChecked[1] = false
+		get_node("SplitButton").texture_normal = _blueSquare
 		get_node("PopupMenu").set_item_checked(index, false)
 		get_node("MainButton").rect_scale = Vector2(1,1)
 		get_node("SplitButton").hide()
