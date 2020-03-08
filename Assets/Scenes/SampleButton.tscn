@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Images/pink_circle.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Fonts/oswald24.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Assets/Scripts/SampleButton.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Scripts/SampleButton.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Fonts/oswald24.tres" type="DynamicFont" id=3]
 
 [node name="SampleButton" type="TextureButton"]
 margin_right = 50.0
 margin_bottom = 50.0
 action_mode = 0
 texture_normal = ExtResource( 1 )
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -17,10 +17,28 @@ __meta__ = {
 [node name="SampleName" type="Label" parent="."]
 margin_right = 50.0
 margin_bottom = 50.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+margin_left = 51.5789
+margin_top = -17.8947
+margin_right = 75.5789
+margin_bottom = 62.1053
+
+[node name="VSlider" type="VSlider" parent="PopupPanel"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 20.0
+margin_bottom = 76.0
+min_value = -20.0
+max_value = 0.0
+step = 0.1
+[connection signal="gui_input" from="." to="." method="_on_SampleButton_gui_input"]
+[connection signal="mouse_exited" from="." to="." method="_on_SampleButton_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_SampleButton_pressed"]
+[connection signal="value_changed" from="PopupPanel/VSlider" to="." method="_on_VSlider_value_changed"]
