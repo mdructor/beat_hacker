@@ -38,12 +38,19 @@ func _light_up(flag):
 			get_node("MainButton").texture_normal = _pinkSquare
 		else:
 			get_node("MainButton").texture_normal = _purpleSquare
+		if (_isChecked[1]):
+			get_node("SplitButton").texture_normal = _pinkSquare
+		else:
+			get_node("SplitButton").texture_normal = _purpleSquare	
 	else:
 		if (_isChecked[0]):
 			get_node("MainButton").texture_normal = _blueSquareDown
 		else:
 			get_node("MainButton").texture_normal = _blueSquare
-	
+		if (_isChecked[1]):
+			get_node("SplitButton").texture_normal = _blueSquareDown
+		else:
+			get_node("SplitButton").texture_normal = _blueSquare
 
 
 func _on_SequenceButton_gui_input(event):
