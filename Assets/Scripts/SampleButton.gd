@@ -10,8 +10,12 @@ func initialize(buttonText, sampleName, samplePack = ""):
 	_sampleName = sampleName
 	_samplePack = samplePack
 	find_node("SampleName").set_text(_buttonText)
+	
 
 func _on_SampleButton_pressed():
+	playSample()
+	
+func playSample():
 	if _sampleName == "":
 		return
 	var player = find_parent("Sequencer").find_node("SampleStreamer")
@@ -23,7 +27,6 @@ func _on_SampleButton_pressed():
 	
 	player.volume_db = _volume
 	player.play()
-	
 
 
 func _on_SampleButton_gui_input(event):

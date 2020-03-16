@@ -38,6 +38,11 @@ func _ready():
 	
 	initialize_sample_buttons()
 
+func _input(event):
+	for i in range(1, 9):
+		if event.is_action_pressed("sample" + str(i)):
+			_sampleButtons[i-1].playSample()
+
 func initialize_sample_buttons():
 	_sampleButtons[0].initialize("Kick", "808-Kick")
 	_sampleButtons[1].initialize("Snare", "808-Snare")
