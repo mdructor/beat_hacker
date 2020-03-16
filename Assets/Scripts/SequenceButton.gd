@@ -23,11 +23,17 @@ func _on_MainButton_pressed():
 
 func check(on):
 	if on:
-		_isChecked = true
+		_isChecked[0] = true
 		get_node("MainButton").texture_normal = _blueSquareDown
+		if _isSplit:
+			_isChecked[1] = true
+			get_node("SplitButton").texture_normal = _blueSquareDown
 	else:
-		_isChecked = false
+		_isChecked[0] = false
 		get_node("MainButton").texture_normal = _blueSquare
+		if _isSplit:
+			_isChecked[1] = false
+			get_node("SplitButton").texture_normal = _blueSquare
 
 func set_state(state):
 	_isEnabled = state

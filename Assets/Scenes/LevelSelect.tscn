@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="LevelSelect" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1028.0
+margin_bottom = 703.0
+color = Color( 0.0431373, 0.0431373, 0.0431373, 1 )
