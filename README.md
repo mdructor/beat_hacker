@@ -2,6 +2,7 @@
 
 <a href="http://beathacker.rocks" target="_blank">CHECK OUT OUR PROJECT LIVE HERE!!!</a>
 
+![Action gif](example.gif)
 Beat hacker is a rhythm simulation game designed to teach people how 
 to program beats digitally. It features a simple beat sequencer, similar
 to what you would see in modern digital audio workstations(DAWs) that can
