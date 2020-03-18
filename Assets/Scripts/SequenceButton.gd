@@ -15,6 +15,7 @@ func _ready():
 func _on_MainButton_pressed():
 	state.state[0] = !state.state[0]
 	updateView()
+	get_parent().signalSequenceViewChange()
 
 func check(on):
 	if on:
@@ -48,6 +49,7 @@ func updateView():
 		get_node("SplitButton").texture_normal = _blueSquareDown
 	else:
 		get_node("SplitButton").texture_normal = _blueSquare
+	
 	
 func _light_up(flag):
 	if (flag):
@@ -88,7 +90,9 @@ func _on_PopupMenu_index_pressed(index):
 	else:
 		state.isSplit = true
 		updateView()
+	get_parent().signalSequenceViewChange()
 
 func _on_SplitButton_pressed():
 	state.state[1] = !state.state[1]
 	updateView()
+	get_parent().signalSequenceViewChange()

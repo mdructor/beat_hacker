@@ -96,8 +96,13 @@ func _on_play_tick():
 	for i in range(8):
 		_sequenceButtons[i][(_tickCount % _TICKS_PER_BAR) /2]._light_up(true)
 		
-		if _tickCount % 16 == 0:
+		if _tickCount % _TICKS_PER_BAR == 0:
 			_sequenceButtons[i][15]._light_up(false)
+			_currentBar = _tickCount / _TICKS_PER_BAR + 1
+			if _currentBar > _totalBars:
+				_currentBar = 1
+			updateBarText()
+			restateSequenceView()
 		else:
 			_sequenceButtons[i][(_tickCount % _TICKS_PER_BAR) / 2 - 1]._light_up(false)
 			
@@ -107,7 +112,7 @@ func _on_play_tick():
 	if _tickCount % 8 == 0 && _metronomeOn == true:
 		get_node("SampleStreamer/Metronome").play()
 	
-	if _tickCount == _TICKS_PER_BAR * _totalBars -1:
+	if _tickCount == _TICKS_PER_BAR * _totalBars - 1:
 		_tickCount = 0
 	else:
 		_tickCount += 1
@@ -209,9 +214,21 @@ func _on_CurBarDwn_pressed():
 		return
 	_currentBar -= 1
 	updateBarText()
+	restateSequenceView()
 
 func _on_CurBarUp_pressed():
 	if _currentBar == _totalBars:
 		return
 	_currentBar += 1
 	updateBarText()
+	restateSequenceView()
+	
+func signalSequenceViewChange(): # TODO
+	for i in range(8):
+		for j in range(_TICKS_PER_BAR / 2):
+			_sequenceButtonState[i][(_currentBar - 1) * _TICKS_PER_BAR / 2 + j] = _sequenceButtons[i][j].state
+			
+func restateSequenceView():
+	for i in range(8):
+		for j in range(_TICKS_PER_BAR / 2):
+			_sequenceButtons[i][j].setStateAndUpdateView(_sequenceButtonState[i][(_currentBar - 1) * _TICKS_PER_BAR / 2 + j])
