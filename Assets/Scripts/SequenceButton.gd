@@ -7,56 +7,60 @@ var _pinkSquare = preload("res://Assets/Images/pink_square.png")
 
 var _isEnabled = true
 
-var _isChecked = [false, false]
-var _isSplit = false
+var state = load("res://Assets/Scripts/SequenceButtonState.gd").new()
 
 func _ready():
 	get_node("PopupMenu").add_check_item("Split")
 
 func _on_MainButton_pressed():
-	if (_isChecked[0]):
-		get_node("MainButton").texture_normal = _blueSquare
-	else:
-		get_node("MainButton").texture_normal = _blueSquareDown
-	_isChecked[0] = !_isChecked[0]
-
+	state.state[0] = !state.state[0]
+	updateView()
 
 func check(on):
 	if on:
-		_isChecked[0] = true
-		get_node("MainButton").texture_normal = _blueSquareDown
-		if _isSplit:
-			_isChecked[1] = true
-			get_node("SplitButton").texture_normal = _blueSquareDown
+		state.state[0] = true
+		if state._isSplit:
+			state.state[1] = true
 	else:
-		_isChecked[0] = false
-		get_node("MainButton").texture_normal = _blueSquare
-		if _isSplit:
-			_isChecked[1] = false
-			get_node("SplitButton").texture_normal = _blueSquare
+		state.state[0] = false
+		if state.isSplit:
+			state.state[1] = false
+	updateView()
 
-func set_state(state):
-	_isEnabled = state
+func setStateAndUpdateView(state):
+	self.state = state
+	updateView()
+
+func updateView():
+	if state.isSplit:
+		get_node("MainButton").rect_scale = Vector2(0.5, 1)
+		get_node("SplitButton").show()
+		get_node("PopupMenu").set_item_checked(0, true)
+	else:
+		get_node("MainButton").rect_scale = Vector2(1, 1)
+		get_node("SplitButton").hide()
+		get_node("PopupMenu").set_item_checked(0, false)
+	if (state.state[0]):
+		get_node("MainButton").texture_normal = _blueSquareDown
+	else:
+		get_node("MainButton").texture_normal = _blueSquare
+	if (state.state[1]):
+		get_node("SplitButton").texture_normal = _blueSquareDown
+	else:
+		get_node("SplitButton").texture_normal = _blueSquare
 	
 func _light_up(flag):
 	if (flag):
-		if (_isChecked[0]):
+		if (state.state[0]):
 			get_node("MainButton").texture_normal = _pinkSquare
 		else:
 			get_node("MainButton").texture_normal = _purpleSquare
-		if (_isChecked[1]):
+		if (state.state[1]):
 			get_node("SplitButton").texture_normal = _pinkSquare
 		else:
 			get_node("SplitButton").texture_normal = _purpleSquare	
 	else:
-		if (_isChecked[0]):
-			get_node("MainButton").texture_normal = _blueSquareDown
-		else:
-			get_node("MainButton").texture_normal = _blueSquare
-		if (_isChecked[1]):
-			get_node("SplitButton").texture_normal = _blueSquareDown
-		else:
-			get_node("SplitButton").texture_normal = _blueSquare
+		updateView()
 
 
 func _on_SequenceButton_gui_input(event):
@@ -78,23 +82,13 @@ func _on_SequenceButton_mouse_exited():
 
 func _on_PopupMenu_index_pressed(index):
 	if get_node("PopupMenu").is_item_checked(index):
-		_isSplit = false
-		_isChecked[1] = false
-		get_node("SplitButton").texture_normal = _blueSquare
-		get_node("PopupMenu").set_item_checked(index, false)
-		get_node("MainButton").rect_scale = Vector2(1,1)
-		get_node("SplitButton").hide()
+		state.isSplit = false
+		state.state[1] = false
+		updateView()
 	else:
-		get_node("PopupMenu").set_item_checked(index, true)
-		get_node("MainButton").rect_scale = Vector2(0.5, 1)
-		_isSplit = true
-		if _isChecked[1]:
-			get_node("SplitButton").texture_normal = _blueSquareDown
-		get_node("SplitButton").show()
+		state.isSplit = true
+		updateView()
 
 func _on_SplitButton_pressed():
-	if (_isChecked[1]):
-		get_node("SplitButton").texture_normal = _blueSquare
-	else:
-		get_node("SplitButton").texture_normal = _blueSquareDown
-	_isChecked[1] = !_isChecked[1]
+	state.state[1] = !state.state[1]
+	updateView()
