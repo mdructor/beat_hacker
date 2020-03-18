@@ -5,8 +5,6 @@ var _blueSquare = preload("res://Assets/Images/blue_square.png")
 var _purpleSquare = preload("res://Assets/Images/purple_square.png")
 var _pinkSquare = preload("res://Assets/Images/pink_square.png")
 
-var _isEnabled = true
-
 var state = load("res://Assets/Scripts/SequenceButtonState.gd").new()
 
 func _ready():
