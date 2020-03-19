@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/whitestripessample.wav-6bd2d40e3c534660e5cc890719a63d06.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/beatsamples/whitestripessample.wav"
+dest_files=[ "res://.import/whitestripessample.wav-6bd2d40e3c534660e5cc890719a63d06.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
