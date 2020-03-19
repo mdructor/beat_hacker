@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Scenes/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/sharetechbig.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/Fonts/oswald_top_ui.tres" type="DynamicFont" id=3]
 
