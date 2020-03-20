@@ -27,6 +27,7 @@ func _on_BackButton_pressed():
 
 
 func _on_BeatLabel_gui_input(beat, selected_btn):
+	get_node("StartLevelBtn").show()
 	selected_btn.pressed = true
 	for btn in beatButtons:
 		if selected_btn != btn:
@@ -37,3 +38,7 @@ func _on_BeatLabel_gui_input(beat, selected_btn):
 		var beat_sample = load("res://Assets/Sounds/beatsamples/" + beat._sample_path)
 		get_node("SamplePlayer").stream = beat_sample
 		get_node("SamplePlayer").play()
+
+
+func _on_StartLevelBtn_pressed():
+	get_tree().change_scene("res://Assets/Scenes/LevelView.tscn")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Scripts/LevelSelect.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/oswald_bpm.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/Fonts/oswald_top_ui.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Assets/Fonts/oswald24.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/Scenes/AudioVisuailizer.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Theme" id=1]
 
@@ -73,4 +74,17 @@ margin_bottom = 500.0
 rect_min_size = Vector2( 300, 500 )
 
 [node name="SamplePlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioVisuailizer" parent="." instance=ExtResource( 5 )]
+position = Vector2( 701.31, 260.215 )
+
+[node name="StartLevelBtn" type="Button" parent="."]
+visible = false
+margin_left = 646.533
+margin_top = 402.96
+margin_right = 864.533
+margin_bottom = 453.96
+custom_fonts/font = ExtResource( 2 )
+text = "Begin Hacking"
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="StartLevelBtn" to="." method="_on_StartLevelBtn_pressed"]
