@@ -447,7 +447,6 @@ WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
 
 [node name="Sequencer" type="ColorRect"]
-margin_left = -4.24265
 margin_right = 945.757
 margin_bottom = 550.0
 rect_min_size = Vector2( 950, 550 )

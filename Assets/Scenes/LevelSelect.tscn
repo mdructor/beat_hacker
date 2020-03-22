@@ -84,7 +84,7 @@ margin_left = 646.533
 margin_top = 402.96
 margin_right = 864.533
 margin_bottom = 453.96
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 4 )
 text = "Begin Hacking"
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="StartLevelBtn" to="." method="_on_StartLevelBtn_pressed"]

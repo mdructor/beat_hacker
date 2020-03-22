@@ -1,8 +1,8 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
-[ext_resource path="res://Assets/Fonts/Oswald-VariableFont:wght.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Fonts/Oswald-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 
 [resource]
 resource_name = "Oswald24"
-size = 12
+size = 24
 font_data = ExtResource( 1 )
