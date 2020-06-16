@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Images/blue_square.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Images/blue_square_down.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/button.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Scripts/FunButton.gd" type="Script" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
 
 [node name="FunButton" type="TextureButton"]
+modulate = Color( 0.48, 1, 1.05, 1 )
+material = SubResource( 1 )
 margin_right = 40.0
 margin_bottom = 40.0
 toggle_mode = true
 texture_normal = ExtResource( 1 )
-texture_pressed = ExtResource( 2 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

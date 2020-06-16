@@ -1,65 +1,95 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/sharetechbig.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/Fonts/oswald24.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Images/background.jpg" type="Texture" id=4]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+tonemap_mode = 2
+glow_enabled = true
+glow_levels/4 = true
+glow_strength = 1.03
+glow_blend_mode = 0
+glow_bicubic_upscale = true
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -1.29236
-margin_top = -1.29236
-margin_right = 1023.71
-margin_bottom = 701.708
-color = Color( 0, 0, 0, 1 )
-
-[node name="Title" type="Label" parent="ColorRect"]
-margin_left = 148.0
-margin_top = 102.0
-margin_right = 784.0
-margin_bottom = 152.0
+[node name="Title" type="Label" parent="."]
+modulate = Color( 0.99, 0.99, 0.99, 1 )
+margin_left = 31.0
+margin_top = 51.0
+margin_right = 667.0
+margin_bottom = 101.0
 custom_fonts/font = ExtResource( 2 )
-text = "beat hacker|"
+text = "> beat hacker|"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="FunContainer" type="Node2D" parent="ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 415.0
+margin_top = 210.0
+margin_right = 585.0
+margin_bottom = 522.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
-margin_left = 56.0
-margin_top = 235.0
-margin_right = 215.0
-margin_bottom = 552.0
-
-[node name="LevelSelectButton" type="Button" parent="ColorRect/VBoxContainer"]
-margin_right = 159.0
+[node name="LevelSelectButton" type="Button" parent="VBoxContainer"]
+modulate = Color( 0.9, 0.9, 0.9, 1 )
+margin_right = 170.0
 margin_bottom = 75.0
 rect_min_size = Vector2( 0, 75 )
 custom_fonts/font = ExtResource( 3 )
 text = "Level Selector"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="SequencerButton" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="SequencerButton" type="Button" parent="VBoxContainer"]
 margin_top = 79.0
-margin_right = 159.0
+margin_right = 170.0
 margin_bottom = 154.0
 rect_min_size = Vector2( 0, 75 )
 custom_fonts/font = ExtResource( 3 )
 text = "Sequencer"
 
-[node name="OptionsButton" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
 margin_top = 158.0
-margin_right = 159.0
+margin_right = 170.0
 margin_bottom = 233.0
 rect_min_size = Vector2( 0, 75 )
 custom_fonts/font = ExtResource( 3 )
 text = "Options"
 
-[node name="ExitButton" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
 margin_top = 237.0
-margin_right = 159.0
+margin_right = 170.0
 margin_bottom = 312.0
 rect_min_size = Vector2( 0, 75 )
 custom_fonts/font = ExtResource( 3 )
 text = "Exit"
-[connection signal="pressed" from="ColorRect/VBoxContainer/LevelSelectButton" to="." method="_on_LevelSelectButton_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/SequencerButton" to="." method="_on_SequencerButton_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_top = -0.396667
+margin_right = 1024.0
+margin_bottom = 699.603
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FunContainer" type="Node2D" parent="CanvasLayer"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer"]
+environment = SubResource( 1 )
+[connection signal="pressed" from="VBoxContainer/LevelSelectButton" to="." method="_on_LevelSelectButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/SequencerButton" to="." method="_on_SequencerButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

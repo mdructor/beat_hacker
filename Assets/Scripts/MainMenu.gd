@@ -35,22 +35,22 @@ func _process(delta):
 
 func cursorTick():
 	if (titleHasCursor):
-		get_node("ColorRect/Title").text = "beat hacker"
+		get_node("Title").text = "> beat hacker"
 		titleHasCursor = false
 	else:
-		get_node("ColorRect/Title").text = "beat hacker|"
+		get_node("Title").text = "> beat hacker|"
 		titleHasCursor = true
 
 func funButtonTick():
 	# spawn new ones
 	var toSpawn = []
-	for i in range(4):
+	for i in range(7):
 		toSpawn.append((int(rand_range(0, 2)) == 1))
-	for y in range(4):
+	for y in range(7):
 		if toSpawn[y]:
 			funButtons.append(load("res://Assets/Scenes/FunButton.tscn").instance())
-			funButtons.back().set_begin(Vector2(1125, 250 + 75 * y))
-			get_node("ColorRect/FunContainer").add_child(funButtons.back())
+			funButtons.back().set_begin(Vector2(1125, 125 + 75 * y))
+			get_node("CanvasLayer/FunContainer").add_child(funButtons.back())
 			
 
 func _on_ExitButton_pressed():
