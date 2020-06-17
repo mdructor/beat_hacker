@@ -74,7 +74,7 @@ func _on_PlayButton_pressed():
 	if (_isPlaying):
 		_timer.stop()
 		remove_child(_timer)
-		find_node("PlayButton").find_node("PlayLabel").set_text("Play")
+		find_node("PlayLabel").set_text("Play")
 		
 		for i in range(8):
 			for j in range(16):
@@ -89,7 +89,7 @@ func _on_PlayButton_pressed():
 		_timer.set_one_shot(false)
 		add_child(_timer)
 		_timer.start(tick_rate)
-		find_node("PlayButton").find_node("PlayLabel").set_text("Stop")
+		find_node("PlayLabel").set_text("Stop")
 	_isPlaying = !_isPlaying
 		
 func _on_play_tick():
@@ -190,7 +190,7 @@ func _on_MetronomeToggle_toggled(button_pressed):
 	_metronomeOn = button_pressed
 	
 func updateBarText():
-	get_node("BarRect/BarText").text = str(_currentBar) + "/" + str(_totalBars)
+	get_node("BarText").text = str(_currentBar) + "/" + str(_totalBars)
 
 func updateSequencerButtons(): # NOPE NOPE NOPE TODO
 	pass
