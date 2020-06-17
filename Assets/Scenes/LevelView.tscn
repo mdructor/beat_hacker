@@ -14,10 +14,7 @@ margin_bottom = 700.413
 color = Color( 0.192157, 0.192157, 0.192157, 1 )
 
 [node name="Sequencer" parent="." instance=ExtResource( 2 )]
-margin_left = 40.1843
-margin_top = 138.041
-margin_right = 990.184
-margin_bottom = 688.041
+position = Vector2( 38.2247, 138.197 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 margin_left = 374.0
