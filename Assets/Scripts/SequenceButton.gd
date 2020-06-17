@@ -1,13 +1,15 @@
 extends Control
 
-var _blueSquareDown = preload("res://Assets/Images/blue_square_down.png")
-var _blueSquare = preload("res://Assets/Images/blue_square.png")
-var _purpleSquare = preload("res://Assets/Images/purple_square.png")
-var _pinkSquare = preload("res://Assets/Images/pink_square.png")
+var _lightBlue = Color(0.4, 1, 1.01)
+var _light = Color(0.9, 1, 1.02)
+var _pink = Color(1.02, 0.45, 0.97)
+var _purple = Color(1.02, 0, .7)
+
 
 var state = load("res://Assets/Scripts/SequenceButtonState.gd").new()
 
 func _ready():
+	get_node("MainButton").modulate = _lightBlue
 	get_node("PopupMenu").add_check_item("Split")
 
 func _on_MainButton_pressed():
@@ -40,25 +42,25 @@ func updateView():
 		get_node("SplitButton").hide()
 		get_node("PopupMenu").set_item_checked(0, false)
 	if (state.state[0]):
-		get_node("MainButton").texture_normal = _blueSquareDown
+		get_node("MainButton").modulate = _light
 	else:
-		get_node("MainButton").texture_normal = _blueSquare
+		get_node("MainButton").modulate = _lightBlue
 	if (state.state[1]):
-		get_node("SplitButton").texture_normal = _blueSquareDown
+		get_node("SplitButton").modulate = _light
 	else:
-		get_node("SplitButton").texture_normal = _blueSquare
+		get_node("SplitButton").modulate = _lightBlue
 	
 	
 func _light_up(flag):
 	if (flag):
 		if (state.state[0]):
-			get_node("MainButton").texture_normal = _pinkSquare
+			get_node("MainButton").modulate = _pink
 		else:
-			get_node("MainButton").texture_normal = _purpleSquare
+			get_node("MainButton").modulate = _purple
 		if (state.state[1]):
-			get_node("SplitButton").texture_normal = _pinkSquare
+			get_node("SplitButton").modulate = _pink
 		else:
-			get_node("SplitButton").texture_normal = _purpleSquare	
+			get_node("SplitButton").modulate = _purple
 	else:
 		updateView()
 

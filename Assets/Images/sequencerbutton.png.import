@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pink_square.png-8a530e0de1f0106062a154fa56270160.stex"
+path="res://.import/sequencerbutton.png-30dcde93300e44fa55df1c37e0d471fe.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/pink_square.png"
-dest_files=[ "res://.import/pink_square.png-8a530e0de1f0106062a154fa56270160.stex" ]
+source_file="res://Assets/Images/sequencerbutton.png"
+dest_files=[ "res://.import/sequencerbutton.png-30dcde93300e44fa55df1c37e0d471fe.stex" ]
 
 [params]
 

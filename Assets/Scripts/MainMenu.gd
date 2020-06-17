@@ -44,7 +44,7 @@ func cursorTick():
 func funButtonTick():
 	# spawn new ones
 	var toSpawn = []
-	for i in range(7):
+	for _i in range(7):
 		toSpawn.append((int(rand_range(0, 2)) == 1))
 	for y in range(7):
 		if toSpawn[y]:

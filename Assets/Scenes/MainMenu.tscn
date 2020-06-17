@@ -4,15 +4,7 @@
 [ext_resource path="res://Assets/Fonts/sharetechbig.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/Fonts/oswald24.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Assets/Images/background.jpg" type="Texture" id=4]
-
-[sub_resource type="Environment" id=1]
-background_mode = 4
-tonemap_mode = 2
-glow_enabled = true
-glow_levels/4 = true
-glow_strength = 1.03
-glow_blend_mode = 0
-glow_bicubic_upscale = true
+[ext_resource path="res://Assets/Scenes/GlowEnvironment.tres" type="Environment" id=5]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
@@ -89,7 +81,7 @@ __meta__ = {
 [node name="FunContainer" type="Node2D" parent="CanvasLayer"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer"]
-environment = SubResource( 1 )
+environment = ExtResource( 5 )
 [connection signal="pressed" from="VBoxContainer/LevelSelectButton" to="." method="_on_LevelSelectButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/SequencerButton" to="." method="_on_SequencerButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

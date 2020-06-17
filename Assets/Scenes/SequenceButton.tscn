@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/Scripts/SequenceButton.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Images/blue_square.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/sequencerbutton.png" type="Texture" id=3]
 
 [node name="SequenceButton" type="Control"]
 margin_right = 48.0
@@ -12,9 +12,10 @@ __meta__ = {
 }
 
 [node name="MainButton" type="TextureButton" parent="."]
+modulate = Color( 0.34, 1, 1.01, 1 )
 margin_right = 48.0
 margin_bottom = 48.0
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -25,7 +26,7 @@ margin_left = 24.0
 margin_right = 72.0
 margin_bottom = 48.0
 rect_scale = Vector2( 0.5, 1 )
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 3 )
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
 margin_right = 20.0

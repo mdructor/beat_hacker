@@ -1,4 +1,4 @@
-extends ColorRect
+extends Node2D
 
 var _TICKS_PER_BAR = 32    # (32nd notes)
 var _MAX_BARS = 4        # Maximum number of bars available to user
