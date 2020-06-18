@@ -18,13 +18,15 @@ func _process(delta):
 	time_since_color_change += delta
 	if time_since_color_change > 0.1:
 		var current_color = modulate
-		if (current_color.g > 1):
+		if (current_color.g > .5):
 			up = false
-		if current_color.g < 0.29:
+		if current_color.g < .1:
 			up = true
 		if up:
 			current_color.g += 0.01
+			current_color.r -= 0.01
 		else:
 			current_color.g -= 0.01
+			current_color.r += 0.01
 		modulate = current_color
 		time_since_color_change = 0

@@ -3,19 +3,7 @@
 [ext_resource path="res://Assets/Scripts/SequencerView.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Scenes/Sequencer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Fonts/oswald_top_ui.tres" type="DynamicFont" id=3]
-
-[sub_resource type="Environment" id=1]
-background_mode = 4
-glow_enabled = true
-glow_levels/1 = true
-glow_levels/2 = true
-glow_levels/4 = true
-glow_levels/6 = true
-glow_levels/7 = true
-glow_blend_mode = 0
-glow_bicubic_upscale = true
-adjustment_contrast = 1.19
-adjustment_saturation = 2.14
+[ext_resource path="res://Assets/Scenes/GlowEnvironment.tres" type="Environment" id=4]
 
 [node name="SequencerView" type="Node2D"]
 script = ExtResource( 1 )
@@ -51,5 +39,5 @@ custom_fonts/font = ExtResource( 3 )
 text = "Back to Menu"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
+environment = ExtResource( 4 )
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

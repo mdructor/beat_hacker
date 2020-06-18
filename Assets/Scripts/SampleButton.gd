@@ -11,7 +11,11 @@ func initialize(buttonText, sampleName, samplePack = ""):
 	_samplePack = samplePack
 	find_node("SampleName").set_text(_buttonText)
 	
-
+func _process(delta):
+	if _sampleName != "" and find_parent("Sequencer").find_node("SampleStreamer").find_node(_sampleName).playing:
+		modulate = Color(1.1, 0.1, 0.1)
+	else:
+		modulate = Color(0.1, 1.1, 0.1)
 func _on_SampleButton_pressed():
 	playSample()
 	

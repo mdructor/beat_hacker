@@ -1,9 +1,9 @@
 extends Control
 
-var _lightBlue = Color(0.4, 1, 1.01)
-var _light = Color(0.9, 1, 1.02)
-var _pink = Color(1.02, 0.45, 0.97)
-var _purple = Color(1.02, 0, .7)
+var _lightBlue = Color(0.2, 0.2, 1.05)
+var _light = Color(0.1, .4, 1.1)
+var _pink = Color(1.1, 0.2, 0.2)
+var _purple = Color(1.02, 0, .3)
 
 
 var state = load("res://Assets/Scripts/SequenceButtonState.gd").new()

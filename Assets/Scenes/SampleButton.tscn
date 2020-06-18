@@ -9,6 +9,7 @@ size = 12
 font_data = ExtResource( 3 )
 
 [node name="SampleButton" type="TextureButton"]
+modulate = Color( 0.12549, 1, 0, 1 )
 margin_right = 50.0
 margin_bottom = 50.0
 action_mode = 0
